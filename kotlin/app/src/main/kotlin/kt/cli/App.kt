@@ -16,9 +16,11 @@ fun main(args: Array<String>) {
     val parser = ArgParser("${App.appName}:: ${App.version}")
     val version by parser.option(ArgType.Boolean, shortName = "V", description = "Version")
         .default(false)
+    val username by parser.option(ArgType.String, shortName = "UN", description = "Print username")
 
     // Add all input to parser
     parser.parse(args)
 
     if(version) println(App.version)
+    if(!username.isNullOrEmpty()) println(username)
 }
