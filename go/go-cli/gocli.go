@@ -37,14 +37,14 @@ func commands() {
 			Aliases: []string{"g"},
 			Usage:   "prints welcome message",
 			Action: func(cCtx *cli.Context) error {
-				if cCtx.Bool("username") {
-					fmt.Println("Hello user: ", cCtx.Args().First())
+				if cCtx.String("username") != "" {
+					fmt.Println("Hello user: ", cCtx.String("username"))
 				}
 				fmt.Println("Welcome to this cli ")
 				return nil
 			},
 			Flags: []cli.Flag{
-				&cli.BoolFlag{
+				&cli.StringFlag{
 					Name:    "username",
 					Aliases: []string{"u"},
 					Usage:   "prints a username with a hello message",
